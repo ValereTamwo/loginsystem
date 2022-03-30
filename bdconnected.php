@@ -25,25 +25,36 @@ try {
 
     //function to check if user is already register 
     function AlreadyRegister($email,$phone){
+        // $servername = "localhost";
+        // $username = "root";
+        // $password = "";
+        //$bdd = new PDO("mysql:host=localhost;dbname=loginandregister",$username,$password);
+       // $conn = new PDO("mysql:host=$servername;dbname=loginandregister", $username, $password);
         $servername = "localhost";
         $username = "root";
         $password = "";
-        //$bdd = new PDO("mysql:host=localhost;dbname=loginandregister",$username,$password);
-        $conn = new PDO("mysql:host=$servername;dbname=loginandregister", $username, $password);
+        $dbname = "loginandregister";
+        
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
         $sql = "SELECT * FROM users";
         $result = $conn->query($sql);
         //verification si l`utilisateur existe deja
-        while ($a <= 10) {
-            # code...
-        }
-        $tout = $result->fetchAll();
-        foreach($tout as $user){
-            if($user['email'] == $email || $user['phone'] == $phone){
-                die($user->phone);
-                return true;
+        if ($result->num_rows > 0) {
+
+            while($row = $result->fetch_assoc())
+            {
+                //echo "<tr><td>".$row["id"]."</td><td>".$row["FirstName"]." ".$row["LastName"].$row["phone"]."</td></tr>";
+                if($row['email'] == $email || $row['phone'] == $phone)
+                {
+                    //die("<br>".$row['phone']."<br>");
+                    return true;
+                }
             }
-        }
+        } 
+        
+        $conn->close();
 
         return false;
     }
