@@ -16,11 +16,11 @@
     <center>
     <div class="container">
 
-<form class="well form-horizontal" action="registration.php" method="post"  id="contact_form">
+<form class="well form-horizontal" action="loginFunction.php" method="post"  id="contact_form">
 <fieldset>
 
 <!-- Form Name -->
-<legend><center><h2><b>Registration</b></h2></center></legend><br>
+<legend><center><h2><b>LoginForm</b></h2></center></legend><br>
 
 <!-- Text input-->
 <div class="form-group">
@@ -32,7 +32,7 @@
         }
     ?>
 </label>  
-</div>
+<!-- </div>
 <div class="form-group">
 <label class="col-md-4 control-label">First Name</label>  
 <div class="col-md-4 inputGroupContainer">
@@ -41,11 +41,11 @@
 <input  name="firstName" placeholder="First Name" class="form-control"  type="text"require>
 </div>
 </div>
-</div>
+</div> -->
 
 <!-- Text input-->
 
-<div class="form-group">
+<!-- <div class="form-group">
 <label class="col-md-4 control-label" >Last Name</label> 
 <div class="col-md-4 inputGroupContainer">
 <div class="input-group">
@@ -53,7 +53,7 @@
 <input name="surName" placeholder="Last Name" class="form-control"  type="text" require>
 </div>
 </div>
-</div>
+</div> -->
 
 <!-- <div class="form-group"> 
 <label class="col-md-4 control-label">Department / Office</label>
@@ -78,7 +78,7 @@
 
 <!-- Text input-->
 
-<div class="form-group">
+<!-- <div class="form-group">
 <label class="col-md-4 control-label">Username</label>  
 <div class="col-md-4 inputGroupContainer">
 <div class="input-group">
@@ -86,8 +86,18 @@
 <input  name="user_name" placeholder="Username" class="form-control"  type="text">
 </div>
 </div>
-</div>
+</div> -->
 
+<!-- Text input-->
+<div class="form-group">
+    <label class="col-md-4 control-label">E-Mail</label>  
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input name="email" placeholder="E-Mail Address" class="form-control"  type="text" require>
+            </div>
+        </div>
+</div>
 <!-- Text input-->
 
 <div class="form-group">
@@ -95,14 +105,14 @@
 <div class="col-md-4 inputGroupContainer">
 <div class="input-group">
 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-<input name="password1" placeholder="Password" class="form-control"  type="password" require>
+<input name="password" placeholder="Password" class="form-control"  type="password" require>
 </div>
 </div>
 </div>
 
 <!-- Text input-->
 
-<div class="form-group">
+<!-- <div class="form-group">
 <label class="col-md-4 control-label" >Confirm Password</label> 
 <div class="col-md-4 inputGroupContainer">
 <div class="input-group">
@@ -110,23 +120,13 @@
 <input name="password2" placeholder="Confirm Password" class="form-control"  type="password" require>
 </div>
 </div>
-</div>
+</div> -->
 
-<!-- Text input-->
-<div class="form-group">
-<label class="col-md-4 control-label">E-Mail</label>  
-<div class="col-md-4 inputGroupContainer">
-<div class="input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-<input name="email" placeholder="E-Mail Address" class="form-control"  type="text" require>
-</div>
-</div>
-</div>
 
 
 <!-- Text input-->
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label class="col-md-4 control-label">Contact No.</label>  
             <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
@@ -134,18 +134,18 @@
                 <input name="phone" placeholder="(639)" class="form-control" type="text">
             </div>
         </div>
-    </div>
+    </div> -->
 
 <!-- Select Basic -->
 
 <!-- Success message -->
-<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
 
 <!-- Button -->
 <div class="form-group">
 <label class="col-md-4 control-label"></label>
 <div class="col-md-4"><br>
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<button type="submit" class="btn btn-warning" value="connect"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspConnect<span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
 </div>
 </div>
 

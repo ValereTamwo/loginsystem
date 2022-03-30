@@ -53,7 +53,7 @@ try {
                 }
             }
         } 
-        
+
         $conn->close();
 
         return false;
@@ -70,7 +70,7 @@ try {
         $salt = "389folong";
         $hasPassword = md5($salt.$var6);
 
-        $sql2 = $bdd->prepare("INSERT INTO users (firstname, lastname,username,phone,email,pass)
+        $sql2 = $bdd->prepare("INSERT INTO users (firstname, lastname,username,phone,email, password)
         VALUES (?,?,?,?,?,?)");
         $sql2->execute($var1,$var2,$var3,$var4,$var5,$hasPassword);
         return true;
