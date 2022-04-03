@@ -64,15 +64,51 @@ try {
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $bdd = new PDO("mysql:host=localhost;dbname=loginandregister",$username.$password);
+        $dbname = "loginandregister";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
         //haching of the password
         $salt = "389folong";
         $hasPassword = md5($salt.$var6);
 
-        $sql2 = $bdd->prepare("INSERT INTO users (firstname, lastname,username,phone,email, password)
-        VALUES (?,?,?,?,?,?)");
-        $sql2->execute($var1,$var2,$var3,$var4,$var5,$hasPassword);
+        // $sql2 = $conn->prepare("INSERT INTO users (FirstName, LastName,userame,phone,email, passWord)
+        // VALUES (?,?,?,?,?,?)");
+
+        $sql2 = $conn->prepare("INSERT INTO users (FirstName, LastName,userame,phone,email, passWord) VALUES (?, ?, ?, ?, ?, ?)");
+
+        //$sql2->bind_param("sssiss",$var1,$var2,$var3,$var4,$var5,$hasPassword);
+       // $stmt->bind_param("sss", $firstname, $lastname, $email);
+        
+        // set parameters and execute
+        // $firstname = "John";
+        // $lastname = "Doe";
+        // $email = "john@example.com";
+        $sql2->execute(arrays($var1,$var2,$var3,$var4,$var5,$hasPassword));
+        
+            //    $sql2->bind_param("s",$var1);
+            //    $sql2->bind_param(2,$var2);
+            //    $sql2->bind_param(3,$var3);
+            //    $sql2->bind_param(4,$var4);
+            //    $sql2->bind_param(5,$var5);
+            //    $sql2->bind_param(6,$hasPassword);
+        die($sql2);
+       $sql2->execute();
+       die("executer"); 
+
+        // if ($conn->query($sql2) === TRUE) {
+        //     echo "New record created successfully";
+        // } else {
+        //     echo "Error: " . $sql2 . "<br>" . $conn->error;
+        // }
+
+        
+        $conn->close();
         return true;
     }
 ?>

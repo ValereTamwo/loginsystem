@@ -24,8 +24,8 @@
             return ;
         }
             
-        $x = registering($_POST['firstName'],$_POST['surName'],$username,$_POST['phone'],$_POST['email'],$_POST['password']);
-        
+        $x = registering($_POST['firstName'],$_POST['surName'],$username,$_POST['phone'],$_POST['email'],$_POST['password1']);
+        die($x);
         if ($x) {
             //creation de la variable connected
             $_SESSION['connected'] = true;
