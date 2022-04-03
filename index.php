@@ -149,6 +149,15 @@
 </div>
 </div>
 
+        <!-- Button -->
+<div class="form-group">
+    <label class="col-md-4 control-label"></label>
+        <div class="col-md-4"><br>
+        you have an Acount ? <a href="loginForm.php">SingIn</a>
+    </div>
+</div>
+
+
 </fieldset>
 </form>
 </div>

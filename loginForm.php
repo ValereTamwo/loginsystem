@@ -148,7 +148,12 @@
 <button type="submit" class="btn btn-warning" value="connect"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspConnect<span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
 </div>
 </div>
-
+<div class="form-group">
+    <label class="col-md-4 control-label"></label>
+        <div class="col-md-4"><br>
+        you don`t  have an Acount ? <a href="loginForm.php">SingUp</a>
+    </div>
+</div>
 </fieldset>
 </form>
 </div>
