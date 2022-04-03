@@ -13,7 +13,7 @@ try {
   $bdd = new PDO("mysql:host=localhost;dbname=loginandregister",$username,$password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "Connected successfully";
+  
 } catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
@@ -61,26 +61,20 @@ try {
 
     //function to register a user
     function registering($var1,$var2,$var3,$var4,$var5,$var6){
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "loginandregister";
+        $bdd= new PDO("mysql:host=localhost;dbname=loginandregister","root","");
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        //haching of the password
+        $requete = 'INSERT INTO users (FirstName,LastName,username,phone,email,passWord) VALUES(?,?,?,?,?,?)';
+        $avant= $bdd->prepare($requete);
+    
+        
         $salt = "389folong";
         $hasPassword = md5($salt.$var6);
+        $avant->execute(array($var1,$var2,$var3,$var4,$var5,$var6));
 
         // $sql2 = $conn->prepare("INSERT INTO users (FirstName, LastName,userame,phone,email, passWord)
         // VALUES (?,?,?,?,?,?)");
 
-        $sql2 = $conn->prepare("INSERT INTO users (FirstName, LastName,userame,phone,email, passWord) VALUES (?, ?, ?, ?, ?, ?)");
+       // $sql2 = $conn->prepare("INSERT INTO users (FirstName, LastName,userame,phone,email, passWord) VALUES (?, ?, ?, ?, ?, ?)");
 
         //$sql2->bind_param("sssiss",$var1,$var2,$var3,$var4,$var5,$hasPassword);
        // $stmt->bind_param("sss", $firstname, $lastname, $email);
@@ -89,7 +83,7 @@ try {
         // $firstname = "John";
         // $lastname = "Doe";
         // $email = "john@example.com";
-        $sql2->execute(arrays($var1,$var2,$var3,$var4,$var5,$hasPassword));
+        //$sql2->execute(arrays($var1,$var2,$var3,$var4,$var5,$hasPassword));
         
             //    $sql2->bind_param("s",$var1);
             //    $sql2->bind_param(2,$var2);
@@ -97,9 +91,7 @@ try {
             //    $sql2->bind_param(4,$var4);
             //    $sql2->bind_param(5,$var5);
             //    $sql2->bind_param(6,$hasPassword);
-        die($sql2);
-       $sql2->execute();
-       die("executer"); 
+       
 
         // if ($conn->query($sql2) === TRUE) {
         //     echo "New record created successfully";
@@ -108,7 +100,7 @@ try {
         // }
 
         
-        $conn->close();
+       // $bdd->close();
         return true;
     }
 ?>

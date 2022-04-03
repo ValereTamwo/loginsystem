@@ -25,10 +25,11 @@
         }
             
         $x = registering($_POST['firstName'],$_POST['surName'],$username,$_POST['phone'],$_POST['email'],$_POST['password1']);
-        die($x);
         if ($x) {
+           // die($x."the rest ");
             //creation de la variable connected
             $_SESSION['connected'] = true;
+            $_SESSION['username'] = $_POST['username'];
             //header("Location : dashboard.php.urlencode()");
             header("Location: dashboard.php");
             return ; 
@@ -36,7 +37,9 @@
         }
         else
         {
-            
+            $faillure = "erreur de connection les donnees entrers sont incorecte";
+            header("Location: index.php?faillure=".urlencode($faillure));
+            return ;
         }
     }
     else 
